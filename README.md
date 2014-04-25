@@ -1,3 +1,5 @@
+####This is a fork of [Rack::OAuth2::Server](https://github.com/assaf/rack-oauth2-server/) which uses the [Moped driver](http://mongoid.org/en/moped/) instead of the Mongo driver.
+
 # Rack::OAuth2::Server
 
 OAuth 2.0 Authorization Server as a Rack module. Because you don't allow strangers into your app, and [OAuth
