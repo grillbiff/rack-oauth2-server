@@ -15,7 +15,9 @@ require "rack/oauth2/server/admin"
 
 ENV["RACK_ENV"] = "test"
 ENV["DB"] = "rack_oauth2_server_test"
-DATABASE = Mongo::Connection.new[ENV["DB"]]
+DATABASE = Moped::Session.connect("mongodb://127.0.0.1:27017/#{ENV['DB']}")
+#DATABASE = Moped::Session.new(["127.0.0.1:27017"]) #Mongo::Connection.new[ENV["DB"]]
+#DATABASE.use(ENV['DB'])
 FRAMEWORK = ENV["FRAMEWORK"] || "sinatra"
 
 
@@ -35,7 +37,6 @@ case FRAMEWORK
 when "sinatra", nil
 
   require "sinatra/base"
-  puts "Testing with Sinatra #{Sinatra::VERSION}"
   require File.dirname(__FILE__) + "/sinatra/my_app"
   
   class Test::Unit::TestCase

@@ -1,6 +1,7 @@
 $: << File.dirname(__FILE__) + "/lib"
 require "rack/oauth2/server"
-Rack::OAuth2::Server.database = Mongo::Connection.new["test"]
+Rack::OAuth2::Server.database = Moped::Session.connect("mongodb://127.0.0.1:27017/test}")
+
 
 class Authorize < Sinatra::Base
   register Rack::OAuth2::Sinatra

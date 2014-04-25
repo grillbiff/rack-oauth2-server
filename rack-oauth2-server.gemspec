@@ -20,7 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 1.8.7'
   spec.add_dependency "rack", "~>1.4.5"
-  spec.add_dependency "mongo", "~>1"
+  #spec.add_dependency "mongo", "~>1"
+  spec.add_dependency "moped", '2.0.0.beta6'
+  spec.add_dependency "bson", '~> 2.2'
   spec.add_dependency "bson_ext"
   spec.add_dependency "sinatra", "~>1.3"
   spec.add_dependency "json"
@@ -32,5 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'timecop', '~>0.5.9.1'
   spec.add_development_dependency 'ap', '~>0.1.1'
   spec.add_development_dependency 'crack', '~>0.3.2'
-  spec.add_development_dependency 'rails', '~>3.2'
+#  spec.add_development_dependency 'rails', '~>4.0'
 end
