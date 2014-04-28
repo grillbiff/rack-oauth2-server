@@ -60,10 +60,10 @@ module Rack
           # Deletes client with given identifier (also, all related records).
           def delete(client_id)
             id = BSON::ObjectId.from_string(client_id.to_s)
-            Client.collection.remove({ :_id=>id })
-            AuthRequest.collection.remove({ :client_id=>id })
-            AccessGrant.collection.remove({ :client_id=>id })
-            AccessToken.collection.remove({ :client_id=>id })
+            Client.collection.find({ :_id=>id }).remove
+            AuthRequest.collection.find({ :client_id=>id }).remove
+            AccessGrant.collection.find({ :client_id=>id }).remove
+            AccessToken.collection.find({ :client_id=>id }).remove
           end
 
           def collection
